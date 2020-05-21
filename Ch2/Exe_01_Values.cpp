@@ -18,19 +18,24 @@ int main(){
     int max = 0;
     int min = 10000;
     int num = 0;
-    cout << "Input the number of integers: ";
+    //cout << "Input the number of integers: ";
     cin >> n;
-    for(int i=0; i<n; ++i){
-        int number = 0;
-        cin >> number;
-        sum += number;
-        if(number > max){
-            max = number;
+    if(n <= 100){
+        for(int i=0; i<n; ++i){
+            int number = 0;
+            cin >> number;
+            if(number >= -10000 && number <= 10000){
+                sum += number;
+                if(number >= max){
+                    max = number;
+                }
+                if(number <= min){
+                    min = number;
+                }
+            }
         }
-        if(number < min){
-            min = number;
-        }
+        cout << sum << ' ' << min << ' ' << max << endl;
     }
-    cout << sum << ' ' << min << ' ' << max << endl;
+    
     return 0;
 }

@@ -13,15 +13,23 @@ int main(){
     cin >> num;
     while(num > 0){
         int tmp = num % 10;
-        if(tmp == 1){
-            int res = 1;
-            for(int i=0; i<cnt; ++i){
-                res *= 2;
+        if(tmp == 0 || tmp == 1){
+            if(tmp == 1){
+                int res = 1;
+                for(int i=0; i<cnt; ++i){
+                    res *= 2;
+                }
+                dec += res;
             }
-            dec += res;
+            num = num/10;
+            cnt++;
+            if(cnt > 10){
+                break;
+            }
+        }else{
+            dec = 0;
+            break;
         }
-        num = num/10;
-        cnt++;
     }
     cout << dec << endl;
     return 0;
