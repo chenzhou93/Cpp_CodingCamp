@@ -14,24 +14,24 @@ bool isPerfectNum(int);
 
 int main(){
     int num = 0;
-    cin >> num;
-    if(num > 0 && num <= 10000){
-        if(isPerfectNum(num)){
-            cout << "True" << endl;
-        }else{
-            cout << "False" << endl;
-        }
-    }else{
-        cout << "False" << endl;
-    }
-    // int cnt = 0;
-    // for(int i=1; i<=10000; i++){
-    //     if(!isPerfectNum(i)){
-    //         //cout << "i: " << i << endl;
-    //         cnt++;
+    // cin >> num;
+    // if(num > 0 && num <= 10000){
+    //     if(isPerfectNum(num)){
+    //         cout << "True" << endl;
+    //     }else{
+    //         cout << "False" << endl;
     //     }
+    // }else{
+    //     cout << "False" << endl;
     // }
-    // cout << cnt << endl;
+    int cnt = 0;
+    for(int i=1; i<=10000; i++){
+        if(!isPerfectNum(i)){
+            //cout << "i: " << i << endl;
+            cnt++;
+        }
+    }
+    cout << cnt << endl;
     return 0;
 }
 
@@ -42,8 +42,6 @@ bool isPerfectNum(int n){
     int sum = 1;
     for(int i=2; i<n; i++){
         int tmp = n%i;
-        //Pair
-        //int t = n / i;
         if(tmp == 0){
             sum += i;
             // if(sum == n){
