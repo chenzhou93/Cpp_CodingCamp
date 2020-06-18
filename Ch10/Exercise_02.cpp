@@ -33,16 +33,24 @@ vector<int> catDog(vector< vector<int> > input){
             }
         }else if(m == 2){
             if(n == 0){
-                MyPair cat = catQueue.front();
-                MyPair dog = dogQueue.front();
-                if(cat.order < dog.order){
-                    result.push_back(cat.type);
+                if(!catQueue.empty() && !dogQueue.empty()){
+                    MyPair cat = catQueue.front();
+                    MyPair dog = dogQueue.front();
+                    if(cat.order < dog.order){
+                        result.push_back(cat.type);
+                        catQueue.pop();
+                    }else{
+                        result.push_back(dog.type);
+                        dogQueue.pop();
+                    }    
+                }else if(!catQueue.empty() && dogQueue.empty()){
+                    result.push_back(catQueue.front().type);
                     catQueue.pop();
-                }else{
-                    result.push_back(dog.type);
+                }else if(catQueue.empty() && !dogQueue.empty()){
+                    result.push_back(dogQueue.front().type);
                     dogQueue.pop();
                 }
-
+                
             }else if(n==1){
                 if(!dogQueue.empty()){
                     MyPair dog = dogQueue.front();
