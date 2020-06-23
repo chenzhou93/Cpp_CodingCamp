@@ -6,7 +6,7 @@
 using namespace std;
 
 /*完善此函数*/
-double calArea(double a, double b, double c)  throw (invalid_argument){
+double calArea(double a, double b, double c) throw (invalid_argument){
     //判断三角形边长是否为正
     if (a <= 0 || b <= 0 || c <= 0){
         throw invalid_argument("The input is illegal");
